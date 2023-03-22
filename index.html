@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Calculadora de Gastos Arbitrales</title>
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <link rel="icon" href="img/icons/favicon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/mq.css">
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar-calculadora">
+            <div class="container-fluid navbarcalculadora-container">
+                <div class="nav-brand">
+                    <img src="img/logos/logo_cear.png" class="nav-brand__img" alt="cear latiniamericano">
+                </div>
+                <a class="btn primary-button" href="https://cearlatinoamericano.pe/documentos/arbitraje-regular/REGLAMENTO-DE-COSTOS-ARBITRALES.pdf" target="_blank">
+                    Costos Arbitrales
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- main header -->
+            <div class="main-header" id="header-gastos-arbitrales">
+                <h1>
+                    Calculadora de Gastos Arbitrales
+                </h1>
+                <p>
+                    Permite calcular los gastos arbitrales respecto de las pretensiones determinadas e indeterminadas
+                    que sometan las partes a controversia ante un Árbitro Único o Tribunal Arbitral, así como el
+                    servicio de administración del proceso arbitral.
+                </p>
+            </div>
+
+            <div class="main-header" id="header-arbitraje-emergencia">
+                <h1>
+                    Calculadora de Arbitraje de Emergencia
+                </h1>
+                <p>
+                    Permite calcular los gastos arbitrales respecto de las pretensiones cuantificables vinculadas al
+                    servicio de arbitraje de emergencia.
+                </p>
+            </div>
+            <!-- End main header -->
+
+            <!-- Calculadora -->
+            <div class="card-calculadora">
+                <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link btn-icon active" id="pills-gastos-arbitrales-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-gastos-arbitrales" type="button" role="tab" aria-controls="pills-gastos-arbitrales"
+                            aria-selected="true">
+                            <ion-icon name="calculator"></ion-icon>
+                            Calcular Gastos Arbitrales
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link btn-icon" id="pills-arbitraje-emergencia-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-arbitraje-emergencia" type="button" role="tab" aria-controls="pills-arbitraje-emergencia"
+                            aria-selected="false">
+                            <ion-icon name="calculator"></ion-icon>
+                            Calcular Arbitraje de Emergencia
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-gastos-arbitrales" role="tabpanel"
+                        aria-labelledby="pills-gastos-arbitrales-tab">
+                        <form>
+                            <div class="calculator-header">
+                                <h2 class="heading-3 mb-0">Pretenciones Determinadas</h2>
+                                <button type="button" class="btn btn-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                                    <span class="material-icons">
+                                        help
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputCuantiaDeterminada" class="form-label">Monto de la cuantía (S/):</label>
+                                <input type="text" class="form-control" id="inputCuantiaDeterminada">
+                            </div>
+                            <button type="button" class="btn btn-block primary-button" id="btn-calcular-gastos-arbitrales">
+                                Calcular
+                            </button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="pills-arbitraje-emergencia" role="tabpanel" aria-labelledby="pills-arbitraje-emergencia-tab">
+                        <form>
+                            <div class="calculator-header">
+                                <h2 class="heading-3 mb-0">Pretenciones Determinadas</h2>
+                                <button type="button" class="btn btn-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                                    <span class="material-icons">
+                                        help
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputCuantiaDeterminadaAe" class="form-label">Monto de la cuantía (S/):</label>
+                                <input type="text" class="form-control" id="inputCuantiaDeterminadaAe">
+                            </div>
+                            <button type="button" class="btn btn-block primary-button" id="btn-calcular-arbitraje-emergencia">
+                                Calcular
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- End calculadora -->
+
+            <!-- Resultados Gatos arbitrales-->
+            <section class="section-resultados" id="section-resultados-gastos-arbitrales">
+                <div class="card-resultados">
+                    <div class="wrap-tables-resultados">
+                        <table class="table text-center align-middle table-columns-2 mb-0">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        Monto de la cuantía resultante por pretensiones indeterminadas
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cálculo de honorarios de árbitro(s) por pretensión(es) indeterminada(s) (S/)</td>
+                                    <td>80.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Cálculo de servicio de administración de arbitraje por pretensión(es) indeterminada(s) (S/)</td>
+                                    <td>80.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card-resultados">
+                    <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link btn-icon active" id="pills-resultado-arbitro-unico-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-resultado-arbitro-unico" type="button" role="tab" aria-controls="pills-resultado-arbitro-unico"
+                                aria-selected="true">
+                                <span class="material-icons">
+                                    person
+                                </span>
+                                Para Árbitro Único
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link btn-icon" id="pills-resultado-tribunal-arbitral-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-resultado-tribunal-arbitral" type="button" role="tab" aria-controls="pills-resultado-tribunal-arbitral"
+                                aria-selected="false">
+                                <span class="material-icons">
+                                    groups
+                                </span>
+                                Para Tribunal Arbitral
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-resultado-arbitro-unico" role="tabpanel"
+                            aria-labelledby="pills-resultado-arbitro-unico-tab">
+                            
+                            <div class="wrap-tables-resultados">
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" colspan="2">
+                                                Servicio de Administración de Arbitraje
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cuantía determinada (S/)</td>
+                                            <td>5,800.39</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cuantía Indeterminada (S/)</td>
+                                            <td>1,814.31</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>7,614.69</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>8985.34</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Honorarios Árbitro Único
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cuantía determinada (S/)</td>
+                                            <td>7,807.45</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cuantía Indeterminada (S/)</td>
+                                            <td>3,819.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>11,083.04</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>12,046.80</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    TOTAL (S/)
+                                                </div>
+                                                <div>
+                                                    Total con IMPUESTOS (S/)
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    18,697.73
+                                                </div>
+                                                <div>
+                                                    21,032.14
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>   
+
+                            <div class="header-resultados">
+                                <h3 class="heading-3">
+                                    Cada parte deberá asumir el 50%
+                                </h3>
+                                <p>
+                                    Con relación a los honorarios de los árbitros y el servicio de administración de arbitraje, cada parte deberá asumir los siguientes costos arbitrales:
+                                </p>
+                            </div>
+
+                            <div class="wrap-tables-resultados">
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" colspan="2">
+                                                Contratista
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicio de Administración de Arbitraje (S/)</td>
+                                            <td>3,807.35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>4,492.67</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Tribula Árbitral (S/)</td>
+                                            <td>5,541.52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>6,023.40</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total sin impuestos (S/)</td>
+                                            <td>9,348.87</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con impuestos (S/)</td>
+                                            <td>10,516.07</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Entidad
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicio de Administración de Arbitraje (S/)</td>
+                                            <td>3,807.35</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>4,492.67</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Tribula Árbitral (S/)</td>
+                                            <td>5,541.52</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>6,023.40</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total sin impuestos (S/)</td>
+                                            <td>9,348.87</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con impuestos (S/)</td>
+                                            <td>10,516.07</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    TOTAL (S/)
+                                                </div>
+                                                <div>
+                                                    Total con IMPUESTOS (S/)
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    18,697.73
+                                                </div>
+                                                <div>
+                                                    21,032.14
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div> 
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-resultado-tribunal-arbitral" role="tabpanel" aria-labelledby="pills-resultado-tribunal-arbitral-tab">
+                            <div class="wrap-tables-resultados">
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" colspan="2">
+                                                Servicio de Administración de Arbitraje
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cuantía determinada (S/)</td>
+                                            <td>2,059.03</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cuantía Indeterminada (S/)</td>
+                                            <td>1,795.15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>3,854.18</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>4,547.93</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Honorarios Tribunal Arbitral
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cuantía determinada (S/)</td>
+                                            <td>6,219.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cuantía Indeterminada (S/)</td>
+                                            <td>6,219.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>12,438.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>13433.04</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Honorarios Árbitro 1
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>4,146.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>4,506.53</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Honorarios Árbitro 2
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>4,146.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>4,506.53</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Honorarios Árbitro 3
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Total (S/)</td>
+                                            <td>4,146.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>4,506.53</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>  
+
+                            <div class="header-resultados">
+                                <h3 class="heading-3">
+                                    Cada parte deberá asumir el 50%
+                                </h3>
+                                <p>
+                                    Con relación a los honorarios de los árbitros y el servicio de administración de arbitraje, cada parte deberá asumir los siguientes costos arbitrales:
+                                </p>
+                            </div>
+
+                            <div class="wrap-tables-resultados">
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" colspan="2">
+                                                Contratista
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicio de Administración de Arbitraje (S/)</td>
+                                            <td>1,927.09</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>2,273.96</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 1 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 2 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 3 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total sin impuestos (S/)</td>
+                                            <td>8,146.097</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con impuestos (S/)</td>
+                                            <td>15,855.62</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table text-center align-middle table-columns-2 mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center rounded-none" colspan="2">
+                                                Entidad
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Servicio de Administración de Arbitraje (S/)</td>
+                                            <td>1,927.09</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con IGV 18% (S/)</td>
+                                            <td>2,273.96</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 1 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 2 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Honorarios Árbitro 3 (S/)</td>
+                                            <td>2,073.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con Renta 8% (S/)</td>
+                                            <td>2,253.26</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total sin impuestos (S/)</td>
+                                            <td>8,146.097</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total con impuestos (S/)</td>
+                                            <td>15,855.62</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    TOTAL (S/)
+                                                </div>
+                                                <div>
+                                                    Total con IMPUESTOS (S/)
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>
+                                                    16,292.18
+                                                </div>
+                                                <div>
+                                                    31,714.24
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div> 
+                        </div>
+
+                        <div class="wrap-btns-resultados">
+                            <button class="btn primary-button btn-icon">
+                                <span class="material-icons-outlined">
+                                    file_download
+                                </span>
+                                Descargar Archivo PDF
+                            </button>
+                            <button class="btn outline-button btn-icon">
+                                <ion-icon name="calculator"></ion-icon>
+                                Realizar Nuevo Cálculo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End resultados gastos arbitrales -->
+
+            <!-- Resultados Arbitraje emergencia -->
+            <section class="section-resultados" id="section-resultados-arbitraje-emergencia">
+                
+                <div class="card-resultados">
+                    <div class="wrap-tables-resultados">
+                        <table class="table text-center align-middle table-columns-2 mb-0">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        Resultado de Cálculo de Arbitraje de Emergencia
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Honorario Árbitro de Emergencia (S/):</td>
+                                    <td>7,000.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Servicio de Administración de Arbitraje de Emergencia (S/):</td>
+                                    <td>7,000.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="wrap-btns-resultados">
+                        <button class="btn primary-button btn-icon">
+                            <span class="material-icons-outlined">
+                                file_download
+                            </span>
+                            Descargar Archivo PDF
+                        </button>
+                        <button class="btn outline-button btn-icon">
+                            <ion-icon name="calculator"></ion-icon>
+                            Realizar Nuevo Cálculo
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- End resultados arbitraje emergencia -->
+
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- LOADER -->
+    <div class="loader">
+        <img src="img/icons/loader.gif" alt="">
+        <span>Cargando...</span>
+    </div>
+    <!-- END LOADER -->
+
+    <!-- Off canvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTarifario"
+        aria-labelledby="offcanvasTarifarioLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTarifarioLabel">Tarifas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="accordion" id="accordionCear">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOneTarifas">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOneTarifas" aria-expanded="true"
+                            aria-controls="collapseOneTarifas">
+                            Tarifas Administrativas
+                        </button>
+                    </h2>
+                    <div id="collapseOneTarifas" class="accordion-collapse collapse show"
+                        aria-labelledby="headingOneTarifas" data-bs-parent="#accordionCear">
+                        <div class="accordion-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Pago</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Solicitud de arbitraje</td>
+                                        <td>S/ 300.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Designación de Árbitros</td>
+                                        <td>S/ 590.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Recusación de Árbitros</td>
+                                        <td>S/ 3,000.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Copia Certificada</td>
+                                        <td>S/ 1.00 (Por Hoja) (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Copia de Video</td>
+                                        <td>S/ 100.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Copia de Audio</td>
+                                        <td>S/ 50.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inscripción y Renovación - Árbitro</td>
+                                        <td>S/ 1,000.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inscripción y Renovación - Adjudicador</td>
+                                        <td>S/ 1,000.00 (Incluye IGV)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inscripción y Renovación - Perito</td>
+                                        <td>S/ 1,000.00 (Incluye IGV)</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwoTarifas">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwoTarifas" aria-expanded="false"
+                            aria-controls="collapseTwoTarifas">
+                            Tarifa de Arbitraje
+                        </button>
+                    </h2>
+                    <div id="collapseTwoTarifas" class="accordion-collapse collapse" aria-labelledby="headingTwoTarifas"
+                        data-bs-parent="#accordionCear">
+                        <div class="accordion-body">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="arbitro-unico-tab" data-bs-toggle="tab"
+                                        data-bs-target="#arbitro-unico" type="button" role="tab" aria-controls="arbitro-unico"
+                                        aria-selected="true">Árbitro Único
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tribunal-arbitral-tab" data-bs-toggle="tab"
+                                        data-bs-target="#tribunal-arbitral" type="button" role="tab"
+                                        aria-controls="tribunal-arbitral" aria-selected="false">Tribunal Arbitral
+                                        Colegiado
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="servicio-administracion-tab" data-bs-toggle="tab"
+                                        data-bs-target="#servicio-administracion" type="button" role="tab"
+                                        aria-controls="servicio-administracion" aria-selected="false">Servicio de
+                                        administración
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="arbitro-unico" role="tabpanel"
+                                    aria-labelledby="arbitro-unico-tab">
+
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Cuantía de Pretenciones</th>
+                                                    <th scope="col">%</th>
+                                                    <th scope="col">Fórmula</th>
+                                                    <th scope="col">Monto Máx (Sin IGV)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1. De S/ 0.00 a 36,000.00</td>
+                                                    <td>0.00 %</td>
+                                                    <td>S/ 3,819.00 +0.00 % sobre la cantidad que exceda de S/ 0.00</td>
+                                                    <td>S/ 3,819.00</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tribunal-arbitral" role="tabpanel"
+                                    aria-labelledby="tribunal-arbitral-tab">
+                                    Tribunal arbitral
+                                </div>
+                                <div class="tab-pane fade" id="servicio-administracion" role="tabpanel"
+                                    aria-labelledby="servicio-administracion-tab">
+                                    Servicio de administracion
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThreeTarifas">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThreeTarifas" aria-expanded="false"
+                            aria-controls="collapseThreeTarifas">
+                            Tarifa de Arbitraje de Emergencia
+                        </button>
+                    </h2>
+                    <div id="collapseThreeTarifas" class="accordion-collapse collapse"
+                        aria-labelledby="headingThreeTarifas" data-bs-parent="#accordionCear">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFourTarifas">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFourTarifas" aria-expanded="false"
+                            aria-controls="collapseFourTarifas">
+                            Arbitraje Menor Cuantía
+                        </button>
+                    </h2>
+                    <div id="collapseFourTarifas" class="accordion-collapse collapse"
+                        aria-labelledby="headingFourTarifas" data-bs-parent="#accordionCear">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End off canvas -->
+
+    <!-- Modals -->
+    <!-- Modal -->
+    <div class="modal fade modalInfo" id="modalContraOlvidada" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="modal-title marginBottom-1-5 text-center">Recuperación de contraseña</h1>
+                    <p class="text-center">
+                        Ingresa tu usuario para solicitar la recuperación de tu contraseña:
+                    </p>
+                    <div class="marginBottom-1">
+                        <label for="inputUser" class="form-label">Usuario</label>
+                        <input type="text" class="form-control" id="inputUser">
+                        <small class="text-help">
+                            <span class="material-icons">
+                                report_problem
+                            </span>
+                            El usuario es incorrecto
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer marginBottom-2">
+                    <button type="button" class="btn btn-large primary-button" data-bs-dismiss="modal">
+                        Solicitar recuperación
+                    </button>
+                    <button type="button" class="btn btn-large link-button" data-bs-dismiss="modal">
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modals -->
+
+    <!--   Bootstrap JS Files   -->
+    <script src="js/jquery.3.2.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

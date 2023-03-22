@@ -1,0 +1,70 @@
+/* Laptop */
+@media (max-width: 1366px) {
+
+}
+/* Fin laptop */
+/* Tablet landscape */
+@media (max-width: 1024px) {
+
+}
+/* Fin tablet landscape */
+/* Big cell landscape */
+@media (max-width: 916px) {
+
+
+}
+/* Fin Big cell landscape */
+/* Tablet portrait */
+@media (max-width: 768px) {
+    /* off canvas */
+.offcanvas {
+    width: 100%;
+}
+/* end off canvas */
+/* MAIN-HEADER */
+.main-header {
+    width: 100%;
+}
+/* END MAIN HEADER */
+
+}
+/* fin tablet portrait */
+/* Cell landscape */
+@media (max-width: 736px) {
+    /* Calculadora */
+    .card-calculadora {
+        width: 100%;
+    }
+
+    .nav-pills {
+        /* background-color: pink; */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* End calculadora/ */
+}
+/* Fin cell landscape */
+
+/* Cell portrait */
+@media (max-width: 480px) {
+  /* Containers */
+.container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}    
+/* End containers */  
+  /* NAVBAR */
+.nav-brand__img {
+    height: 2rem;
+}
+/* END NAVBAR */
+
+/* SECTION RESULTADOS */
+.wrap-btns-resultados .btn-icon {
+    width: 100%;
+}
+/* END SECTION RESULTADOS */
+}
+/* Fin cell portrait */
+
